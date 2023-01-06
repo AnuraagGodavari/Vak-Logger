@@ -1,6 +1,7 @@
 import json, datetime, pprint, traceback, inspect
 
 from common import *
+from VakLogger.logcommon import *
 
 debugmodeOn = False
     
@@ -27,7 +28,7 @@ def log(level, message, details = None, stackLevel = 0):
     if (details): pprint.pprint(details)
     
     #Write to file
-    with open(masterlog, 'a') as log:
+    with open(masterlog, 'a+') as log:
 
         if (details == None):
             log.write(f"{level}: [{logtime} {callerFunctionInfo}] {message}\n\n")
